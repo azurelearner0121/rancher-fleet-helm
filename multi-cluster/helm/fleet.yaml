@@ -9,6 +9,10 @@ targetCustomizations:
         annotations:
            nginx.ingress.kubernetes.io/ssl-redirect: "false"
            nginx.ingress.kubernetes.io/use-regex: "true"
+  yaml:
+    overlays:
+    # Refers to overlays/noreplication folder
+    - aks
   clusterSelector:
     matchLabels:
       cloud: aks
@@ -26,6 +30,10 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       cloud: eks
+  yaml:
+    overlays:
+    # Refers to overlays/noreplication folder
+    - eks
 - name: gke
   helm:
     values:
@@ -35,3 +43,7 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       cloud: gke
+  yaml:
+    overlays:
+    # Refers to overlays/noreplication folder
+    - gke
