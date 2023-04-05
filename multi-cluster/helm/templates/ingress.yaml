@@ -4,8 +4,11 @@ kind: Ingress
 metadata:
   namespace: {{ .Values.ingress.namespace }}
   name: {{ .Values.ingress.name }}
-annotations:
-  {{ .Values.ingress.annotations }}  
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+ 
 spec:  
   rules:
     - http:
