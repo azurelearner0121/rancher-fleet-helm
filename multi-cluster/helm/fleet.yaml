@@ -13,3 +13,25 @@ targetCustomizations:
     matchLabels:
       cloud: aks
 
+- name: eks
+  helm:
+    values:
+      ingress:
+        name: eks-ingress
+        namespace: game-2048
+        class: alb
+        annotations:
+           alb.ingress.kubernetes.io/scheme: internet-facing
+           alb.ingress.kubernetes.io/target-type: instance
+  clusterSelector:
+    matchLabels:
+      cloud: eks
+- name: gke
+  helm:
+    values:
+      ingress:
+        name: gke-ingress
+        namespace: game-2048        
+  clusterSelector:
+    matchLabels:
+      cloud: gke
