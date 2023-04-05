@@ -1,0 +1,7 @@
+metadata:
+ name: eks-ingress-new
+ annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+spec:
+  ingressClassName: alb
