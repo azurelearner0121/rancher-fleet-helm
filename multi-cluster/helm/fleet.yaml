@@ -4,6 +4,7 @@ targetCustomizations:
     values:
       ingress:
         name: aks-ingress
+        namespace: game-2048
         class: nginx
         annotations:
            nginx.ingress.kubernetes.io/ssl-redirect: "false"
